@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<body>
+<script>
+function isprime(num) {
+	var prime = "yes";
+	var max2 = Math.round(Math.sqrt(num));
+	for (i = max2; i >= 2; i--){
+		if(num % i === 0) {
+			prime = "no";
+		}
+	}
+	return prime;
+};
+
+function primecount(max) {
+	var count = 1;
+	var number = 0;
+	var i = 2;
+	while(count <= max){
+		if(isprime(i) === "yes"){
+			number = i;
+			count++;
+			i++;
+		} else {
+			i++;
+		}
+	} document.write('<p class="answer">' + number + '</p>');
+};
+
+primecount(10001);
+
+</script>
+
+
+</body>
+</html>
