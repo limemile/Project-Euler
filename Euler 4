@@ -1,0 +1,34 @@
+<html>
+<body>
+<script type="text/javascript">
+	function reverse(string) {
+		splitArray = string.split("");
+		splitArray = splitArray.reverse();
+		reversedString = splitArray.join("");
+		return reversedString;
+	}
+	
+	function largestPalindrome() {
+		var answer = 0;
+		for( i = 100; i < 1000; i++ ) {
+		
+			for( j = 100; j < 1000; j++ ) {
+				
+				var temp = i * j;
+					
+				
+				if ( temp.toString() == reverse( temp.toString() ) ) {
+					
+					if ( temp > answer ) {
+						answer = temp;
+					}					
+				}
+			}
+		}
+		document.write(answer);
+	}
+	
+	largestPalindrome();
+</script>
+</body>
+</html>
