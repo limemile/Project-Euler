@@ -1,0 +1,29 @@
+<html>
+<body>
+<script type="text/javascript">
+	function gcf (n1, n2){
+		if (n1 == n2) {return n1;}
+		var r;
+		while (n2 != 0){
+			r = n1 % n2;
+			n1 = n2;
+			n2 = r;
+		}
+		return n1;
+	}
+
+	function lcm(n1, n2){
+		return n1 * n2 / gcf(n1,n2);
+	}
+
+	var t = 1;
+
+	for (var i=2; i <= 20; i++){
+		t = lcm(i,t);
+	}
+
+	document.write(t);
+
+</script>
+</body>
+</html>
