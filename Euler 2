@@ -1,0 +1,20 @@
+<html>
+<body>
+	<script type="text/javascript">
+	var firstNum = 1;
+	var secondNum = 0;
+	var total = 0;
+	var answer = firstNum + secondNum;
+	while (answer < 4000000) {
+		// document.write(answer+'<br />');
+		secondNum = firstNum;
+		firstNum = answer;
+		answer = firstNum + secondNum;
+		if(firstNum%2==0){
+			total+= firstNum;
+		}
+	}
+	document.write(total);
+	</script>
+</body>
+</html>
