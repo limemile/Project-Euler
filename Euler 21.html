@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<body>
+<script>
+function sumDivisors(num) {
+    var sqrt = Math.sqrt(num);
+    var total = 1;
+    for(var i = 2; i < sqrt; i++) {
+        if(num % i == 0) {
+            total += i;
+            total += num / i;
+        }
+    }
+    return total;
+}
+
+
+var total = 0;
+var added = [];
+for(var i = 2; i < 10000; i++) {
+    var sum = sumDivisors(i);
+    var otherSum = sumDivisors(sum);
+    if(i != sum && i == otherSum) {
+        if(added.indexOf(i) < 0) {
+            total += i;
+            added.push(i);
+        }
+        if(added.indexOf(sum) < 0) {
+            total += sum;
+            added.push(sum);
+        }
+    }
+}
+document.write(total);
+</script>
+
+
+</body>
+</html>

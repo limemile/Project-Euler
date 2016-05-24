@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Euler 14</title>
+</head>
+<body>
+
+<script>
+    function even(n) {
+        return n/2;
+    }
+    
+    function odd(n) {
+        return 3*n + 1;
+    }
+    
+    function collatz(n) {
+        var a = [n];
+        while ( n != 1 ) {
+            if ( n % 2 == 0 ) {
+                n = even(n);
+            } else {
+                n = odd(n);
+            }
+            a.push(n);
+        }
+        return a;
+    }
+    
+    var maxLen = 0;
+    var f = new Array;
+    var b = new Array;
+    var l;
+    
+    for (var i=1; i < 1000000; i++){
+        b = collatz(i);
+        l = b.length;
+        if ( l > maxLen ) {
+            maxLen = l;
+            f = b
+        }
+    }
+    document.write("answer: " + f[0]);
+</script>  
+
+</body>
+</html>
