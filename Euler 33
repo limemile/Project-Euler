@@ -1,0 +1,31 @@
+def digits(n):
+    """return list of digits of n"""
+    return (n/10, n%10)
+
+def uncommon_digits(x, y):
+    """return list of digits not common to x and y"""
+    result = []
+    for a in digits(x):
+        if a not in digits(y): result.append(a)
+    for b in digits(y):
+        if b not in digits(x): result.append(b)
+    return result
+
+def main():
+    result = []
+    for a in range(10,100):
+        if a % 10 == 0: continue
+        for b in range(a,100):
+            if b % 10 == 0: continue
+            if a == b: continue
+            uncommon = uncommon_digits(a,b)
+            if len(uncommon) == 2:
+                if a / float(b) == uncommon[0] / float(uncommon[1]):
+                    result.append([a,b])
+    for i in result:
+        print i
+        num = reduce(lambda x,y: x * y, [x[0] for x in result])
+    dem = reduce(lambda x,y: x * y, [x[1] for x in result])
+    print num,dem
+
+if __name__ == "__main__": main()
