@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<body>
+<script>
+    function triNum(n) {
+        var sum = 0;
+        for(var i = 1; i <= n; i++) {
+            sum += i
+        }
+        
+        return sum;
+    }
+    
+    function factors(n) {
+        if ( n == 1 ) return [1];
+        
+        var arr = new Array;
+        var i = 1;
+        var max = n;
+        
+        while (i < max) {
+            if ( n % i == 0 ) {  // i is a factor
+                arr.push(i);
+                
+                if ( i != n / i ) { //if not a square, then adding other multiplier of divisor
+                    arr.push(n/i);
+                }
+                max = n / i;
+            }
+            i++
+        }
+        
+        return arr;
+    }
+    
+    var i = 1;
+    while (factors(triNum(i)).length < 500) {
+        i++
+    }
+    
+    document.write(triNum(i));
+</script>   
+
+
+</body>
+</html>
