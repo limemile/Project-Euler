@@ -1,0 +1,14 @@
+def sum_double_base_palindromes_under(limit):
+    def is_palindrome(n):
+        if str(n) == str(n)[::-1]:
+            return True
+        return False
+    sum = 0
+    for n in range(limit):
+        if is_palindrome(n) and is_palindrome(int(bin(n)[2:])):
+            sum += n
+    return sum
+    
+ans = sum_double_base_palindromes_under(1000000)
+
+print(ans)
